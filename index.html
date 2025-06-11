@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      color: gold;
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+
+    main {
+      width: 60%;
+      height: 400px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10%;
+      box-shadow: 0px 0px 0px 5px rgb(228, 176, 4);
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .nav {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .nav button {
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      color: gold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .nav button:hover {
+      transform: scale(1.2);
+    }
+    /* ✅ Responsive Design Using Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .slider-container {
+    height: 300px;
+    width: 95%;
+  }
+
+  .nav-buttons button {
+    font-size: 1.8rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .slider-container {
+    height: 220px;
+    width: 100%;
+  }
+
+  .nav-buttons button {
+    font-size: 1.5rem;
+    padding: 6px 10px;
+  }
+}
+
+    
+
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Slider</h1>
+
+  <main>
+    <img src="./download (3).jpg" alt="Slide 1" class="slide" />
+    <img src="./download (4).jpg" alt="Slide 2" class="slide" />
+    <img src="./Download AI generated Beautiful background for garden spring party advertising for free.jpg" alt="Slide 3" class="slide" />
+    <img src="./Butterfly.jpg" alt="Slide 4" class="slide" />
+    <img src="./Desktop Tinkerbell HD Wallpapers Free Download.jpg" alt="Slide 5" class="slide" />
+    <img src="./Disney Princesses garden.jpg" alt="Slide 6" class="slide" />
+    <img src="./download (1).jpg" alt="Slide 7" class="slide" />
+    <img src="./download.jpg" alt="Slide 8" class="slide" />
+    <img src="./Wallpaper Background Cartoon at Aidapeters.jpg" alt="Slide 9" class="slide" />
+    <img src="./44110626-ea25-4784-8d1d-bea392dcaf4c.jpg" alt="Slide 10" class="slide" />
+    <img src="./f691cae7-9500-4c84-ab85-42472bf7ade0.jpg" alt="Slide 11" class="slide" />
+    <img src="./Hello Kitty and Stitch.jpg" alt="Slide 12" class="slide" />
+  </main>
+
+  <div class="nav">
+    <button onclick="goPrev()">&#10094;</button>
+    <button onclick="goNext()">&#10095;</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let counter = 0;
+
+    // Position each slide vertically
+    slides.forEach((slide, index) => {
+      slide.style.left = `${index * 100}%`;
+    });
+
+    function slideImage() {
+      slides.forEach((slide) => {
+        slide.style.transform = `translateX(-${counter * 100}%)`;
+      });
+    }
+
+    function goNext() {
+      counter = (counter + 1+ slides.length) % slides.length;
+      slideImage();
+    }
+
+    function goPrev() {
+      counter = (counter - 1 + slides.length) % slides.length;
+      slideImage();
+    }
+  </script>
+</body>
+</html>
+
